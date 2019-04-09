@@ -1,0 +1,8 @@
+PharmaGuide - Abstract
+PharmaGuide is an application aimed at bridging the gap between a doctor, a patient and a pharmacist. Research has shown that over 7,000 deaths occur each year due to illegible handwriting on doctor written prescriptions. 
+PharmaGuide enables the doctor to enter the medications prescribed to a patient into a patient information database which can then be accessed by the pharmacist. The database consists of patient information which includes UUID, Name, Date of Birth, Gender, Medical History, Medications, etc. On first visit, a patient will be given a unique ID to identify him/her across all hospitals.
+Upon a visit, the doctor accesses the patient database and updates it to include his current medical condition and the medication prescribed.
+The pharmacist has the access to view the medications of the patient but not the medical history and other details.
+The patient, on the other hand, can view all the information regarding him / her, but does not have the access to edit any of it as the patient is not qualified to do so.
+We have chosen to use a NoSQL database for this project. We believe it would be simpler and more efficient to store patient details in the form of Collections and Documents as it is scalable and provides superior performance while being able to handle large volumes of structured, semi-structured, and unstructured data.
+It has an advantage over the traditional method in that the patient’s data won’t be lost and also is readily available on the go, even in another country
