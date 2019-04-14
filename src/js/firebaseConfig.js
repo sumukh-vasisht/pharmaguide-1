@@ -3,6 +3,6 @@ export default {
     authDomain: "pharmaguide-47ae8.firebaseapp.com",
     databaseURL: "https://pharmaguide-47ae8.firebaseio.com",
     projectId: "pharmaguide-47ae8",
-    storageBucket: "",
+    storageBucket: "pharmaguide-47ae8.appspot.com",
     messagingSenderId: "123007415988"
 }
