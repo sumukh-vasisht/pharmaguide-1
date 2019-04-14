@@ -9,7 +9,7 @@
       </f7-navbar>
     </f7-navbar>
     <f7-list>
-      <f7-list-item link="/viewPatients" title="View Patients"></f7-list-item>
+      <f7-list-item link="/listPatients" title="View Patients"></f7-list-item>
       <f7-list-item link="/addPatient" title="Add Patient"></f7-list-item>
     </f7-list>
   </f7-page>

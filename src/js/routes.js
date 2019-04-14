@@ -1,6 +1,7 @@
 import LoginPage from '../pages/login.vue'
 import DoctorHome from '../pages/doctorHome.vue'
 import AddPatient from '../pages/addPatient.vue'
+import ListPatients from '../pages/listPatients.vue'
 
 import HomePage from '../pages/home.vue';
 import AboutPage from '../pages/about.vue';
@@ -24,6 +25,10 @@ var routes = [
   {
     path: '/addPatient',
     component: AddPatient,
+  },
+  {
+    path: '/listPatients',
+    component: ListPatients,
   },
   {
     path: '/home',
