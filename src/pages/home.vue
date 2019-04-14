@@ -29,7 +29,7 @@
     <f7-block strong>
       <f7-row>
         <f7-col width="50">
-          <f7-button fill raised popup-open="#my-popup">Popup</f7-button>
+          <f7-button fill raised popup-open="/viewPatient">View Patient - Temp Button</f7-button>
         </f7-col>
         <f7-col width="50">
           <f7-button fill raised login-screen-open="#my-login-screen">Login Screen</f7-button>
