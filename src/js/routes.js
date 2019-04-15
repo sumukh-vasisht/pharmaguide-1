@@ -39,7 +39,7 @@ var routes = [
     component: AboutPage,
   },
   {
-    path: '/viewPatient/',
+    path: '/viewPatient',
     component: ViewPatient,
   },
   {

@@ -1,5 +1,5 @@
 <template>
-  <f7-page :name="'Patient '+ id">
+  <f7-page :name="'Patient '">
     <f7-navbar :title="'Patient Details '+ id" back-link="Back">
       <f7-nav-right style="padding-right: 20px;">
           <f7-button raised fill  href="/">Home</f7-button>
