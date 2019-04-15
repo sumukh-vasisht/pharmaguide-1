@@ -45,3 +45,15 @@
     </f7-block>-->
   </f7-page>
 </template>
+<script>
+export default {
+  data(){
+    return {
+      id : ""
+    }
+  },
+  beforeMount(){
+    this.id = this.$f7route.params.id
+  }
+}
+</script>

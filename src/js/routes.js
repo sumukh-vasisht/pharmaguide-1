@@ -31,6 +31,10 @@ var routes = [
     component: ListPatients,
   },
   {
+    path: '/viewPatient/:id',
+    component: ViewPatient,
+  },
+  {
     path: '/home',
     component: HomePage,
   },
