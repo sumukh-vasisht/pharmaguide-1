@@ -6,39 +6,17 @@
         </f7-nav-right>
     </f7-navbar>
 
-    <f7-block-title>Patient ID : </f7-block-title>
-    <f7-list no-hairlines-md>
-      <p></p>
-      <f7-block-title>{{id}}</f7-block-title>
-    </f7-list>
+    <f7-block-title>Patient ID : {{id}}</f7-block-title>
 
-    <f7-block-title>Patient Name : </f7-block-title>
-    <f7-list no-hairlines-md>
-      <p></p>
-      <f7-block-title >{{selected.patientName}}</f7-block-title>
-    </f7-list>
-    <f7-block-title>Age : </f7-block-title>
-    <f7-list no-hairlines-md>
-      <p></p>
-      <f7-block-title>{{selected.patientAge}}</f7-block-title>
-    </f7-list>
-    <f7-block-title>Gender : </f7-block-title>
-    <f7-list no-hairlines-md>
-      <p></p>
-      <f7-block-title>{{selected.patientGender}}</f7-block-title>
-    </f7-list>
+    <f7-block-title>Patient Name : {{selected.patientName}}</f7-block-title>
 
-    <f7-block-title>Date of Birth : </f7-block-title>
-    <f7-list no-hairlines-md>
-      <p></p>
-      <f7-block-title>{{selected.patientDOB}}</f7-block-title>
-    </f7-list>
+    <f7-block-title>Age : {{selected.patientAge}}</f7-block-title>
+  
+    <f7-block-title>Gender : {{selected.patientGender}}</f7-block-title>
 
-    <f7-block-title>Emergency Contact Number : </f7-block-title>
-    <f7-list no-hairlines-md>
-      <p></p>
-      <f7-block-title>{{selected.patientEmergencyContact}}</f7-block-title>
-    </f7-list>
+    <f7-block-title>Date of Birth : {{selected.patientDOB}}</f7-block-title>
+
+    <f7-block-title>Emergency Contact Number : {{selected.patientEmergencyContact}}</f7-block-title>
     
     <!--<f7-block>      
       <f7-button :href="'/editMatchplate/'+id" raised fill>Edit Matchplate {{id}}</f7-button>
