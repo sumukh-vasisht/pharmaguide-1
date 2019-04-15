@@ -3,7 +3,7 @@
     <f7-navbar title="PharmaGuide"></f7-navbar>
 
       <f7-page login-screen>
-        <f7-login-screen-title>VCast</f7-login-screen-title>
+        <f7-login-screen-title>PharmaGuide</f7-login-screen-title>
         <!-- Login Form Component -->
         <f7-list form @keypress.native.enter="Login">
           <f7-list-input
