@@ -2,7 +2,17 @@
   <f7-page :name="'Patient '">
     <f7-navbar :title="'Patient Details - '+ id" back-link="Back">
       <f7-nav-right style="padding-right: 20px;">
-          <f7-button raised fill  href="/">Home</f7-button>
+        <f7-row>
+          <f7-col>
+            <f7-button raised fill  href="/">Home</f7-button>
+          </f7-col>
+          <f7-col>
+            <f7-button raised fill  href="/medicalConditionDoctor">Medical Conditions</f7-button>
+          </f7-col>
+          <f7-col>
+            <f7-button raised fill  href="/medicationDoctor">Medications</f7-button>
+          </f7-col>
+        </f7-row>
         </f7-nav-right>
     </f7-navbar>
 

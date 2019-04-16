@@ -12,6 +12,8 @@ import SettingsPage from '../pages/settings.vue';
 import DynamicRoutePage from '../pages/dynamic-route.vue';
 import RequestAndLoad from '../pages/request-and-load.vue';
 import NotFoundPage from '../pages/404.vue';
+import MedicalConditionDoctor from '../pages/medicalConditionDoctor.vue';
+import MedicationDoctor from '../pages/medicationDoctor.vue';
 
 var routes = [
   {
@@ -45,6 +47,14 @@ var routes = [
   {
     path: '/viewPatient',
     component: ViewPatient,
+  },
+  {
+    path: '/medicalConditionDoctor',
+    component: MedicalConditionDoctor,
+  },
+  {
+    path: '/medicationDoctor',
+    component: MedicationDoctor,
   },
   {
     path: '/form/',
