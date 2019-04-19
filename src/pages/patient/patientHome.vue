@@ -17,6 +17,13 @@
     <f7-block-title>Date of Birth : {{selected.patientDOB}}</f7-block-title>
 
     <f7-block-title>Emergency Contact Number : {{selected.patientEmergencyContact}}</f7-block-title>
+
+    
+    <f7-row>
+      <f7-col>
+        <f7-button raised fill  :href="'/medicalHistory/'+id">View Medical History</f7-button>
+      </f7-col>
+    </f7-row>
     
   </f7-page>
 </template>
