@@ -1,8 +1,8 @@
 import LoginPage from '../pages/login.vue'
-import DoctorHome from '../pages/doctorHome.vue'
-import AddPatient from '../pages/addPatient.vue'
-import ListPatients from '../pages/listPatients.vue'
-import ViewPatient from '../pages/viewPatient.vue'
+import DoctorHome from '../pages/doctor/doctorHome.vue'
+import AddPatient from '../pages/doctor/addPatient.vue'
+import ListPatients from '../pages/doctor/listPatients.vue'
+import ViewPatient from '../pages/doctor/viewPatient.vue'
 import HomePage from '../pages/home.vue';
 import AboutPage from '../pages/about.vue';
 import FormPage from '../pages/form.vue';
@@ -12,8 +12,8 @@ import SettingsPage from '../pages/settings.vue';
 import DynamicRoutePage from '../pages/dynamic-route.vue';
 import RequestAndLoad from '../pages/request-and-load.vue';
 import NotFoundPage from '../pages/404.vue';
-import MedicalConditionDoctor from '../pages/medicalConditionDoctor.vue';
-import MedicationDoctor from '../pages/medicationDoctor.vue';
+import MedicalConditionDoctor from '../pages/doctor/medicalConditionDoctor.vue';
+import MedicationDoctor from '../pages/doctor/medicationDoctor.vue';
 
 var routes = [
   {
