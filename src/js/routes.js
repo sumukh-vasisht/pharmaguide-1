@@ -59,7 +59,7 @@ var routes = [
     component: MedicalConditionDoctor,
   },
   {
-    path: '/medicationDoctor/:id',
+    path: '/medicalHistory/:id',
     component: MedicationDoctor,
   },
   {
