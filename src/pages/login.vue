@@ -47,8 +47,11 @@ import firebase from '../js/firebaseInit'
         let pswd = this.password;
         firebase.auth.signInWithEmailAndPassword(user,pswd)
         .then(auth=>{
-          //Route
+          if(this.username == "doctor")
             this.$f7router.navigate('/doctorHome')
+          else{
+            this.$f7router.navigate('/patientHome/'+this.username)
+          }
         })
         .catch(err=>{
           this.$f7.dialog.alert(err.message);

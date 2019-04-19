@@ -65,7 +65,7 @@ const checkNumberOrEmpty = function(chkArray){
 }
 const getDocument = function(reference,$,objectName){
     $.id = $.$f7route.params.id;
-    firebase.db.doc(reference+"/"+$.id).get().then(snapshot => {
+    firebase.db.doc(reference+"/"+$.id).onSnapshot(snapshot => {
       $[objectName] = snapshot.data();
       console.log($[objectName])
     }).catch(err=>{

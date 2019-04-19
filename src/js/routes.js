@@ -3,6 +3,8 @@ import DoctorHome from '../pages/doctorHome.vue'
 import AddPatient from '../pages/addPatient.vue'
 import ListPatients from '../pages/listPatients.vue'
 import ViewPatient from '../pages/viewPatient.vue'
+import PatientHome from '../pages/patient/patientHome.vue'
+//OUR IMPORTSN'T
 import HomePage from '../pages/home.vue';
 import AboutPage from '../pages/about.vue';
 import FormPage from '../pages/form.vue';
@@ -16,7 +18,7 @@ import NotFoundPage from '../pages/404.vue';
 var routes = [
   {
     path: '/',
-    component: DoctorHome,
+    component: LoginPage,
   },
   {
     path: '/doctorHome',
@@ -33,6 +35,10 @@ var routes = [
   {
     path: '/viewPatient/:id',
     component: ViewPatient,
+  },
+  {
+    path: '/patientHome/:id',
+    component: PatientHome,
   },
   {
     path: '/home',
