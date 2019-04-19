@@ -1,9 +1,9 @@
 import LoginPage from '../pages/login.vue'
-import DoctorHome from '../pages/doctorHome.vue'
-import AddPatient from '../pages/addPatient.vue'
-import ListPatients from '../pages/listPatients.vue'
-import ViewPatient from '../pages/viewPatient.vue'
 import PatientHome from '../pages/patient/patientHome.vue'
+import DoctorHome from '../pages/doctor/doctorHome.vue'
+import AddPatient from '../pages/doctor/addPatient.vue'
+import ListPatients from '../pages/doctor/listPatients.vue'
+import ViewPatient from '../pages/doctor/viewPatient.vue'
 //OUR IMPORTSN'T
 import HomePage from '../pages/home.vue';
 import AboutPage from '../pages/about.vue';
@@ -14,6 +14,8 @@ import SettingsPage from '../pages/settings.vue';
 import DynamicRoutePage from '../pages/dynamic-route.vue';
 import RequestAndLoad from '../pages/request-and-load.vue';
 import NotFoundPage from '../pages/404.vue';
+import MedicalConditionDoctor from '../pages/doctor/medicalConditionDoctor.vue';
+import MedicationDoctor from '../pages/doctor/medicationDoctor.vue';
 
 var routes = [
   {
@@ -51,6 +53,14 @@ var routes = [
   {
     path: '/viewPatient',
     component: ViewPatient,
+  },
+  {
+    path: '/medicalConditionDoctor',
+    component: MedicalConditionDoctor,
+  },
+  {
+    path: '/medicationDoctor',
+    component: MedicationDoctor,
   },
   {
     path: '/form/',

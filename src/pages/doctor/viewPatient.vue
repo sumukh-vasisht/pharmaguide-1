@@ -3,7 +3,6 @@
     <f7-navbar :title="'Patient Details - '+ id" back-link="Back">
       <f7-nav-right style="padding-right: 20px;">
           <f7-button raised fill  href="/doctorHome">Home</f7-button>
-          <f7-block><f7-button raised fill  href="/doctorHome">Home</f7-button></f7-block>
         </f7-nav-right>
     </f7-navbar>
 
@@ -19,11 +18,23 @@
 
     <f7-block-title>Emergency Contact Number : {{selected.patientEmergencyContact}}</f7-block-title>
 
+    <f7-row>
+          <f7-col>
+            <f7-button raised fill  href="/">Home</f7-button>
+          </f7-col>
+          <f7-col>
+            <f7-button raised fill  href="/medicalConditionDoctor">Medical Conditions</f7-button>
+          </f7-col>
+          <f7-col>
+            <f7-button raised fill  href="/medicationDoctor">Medications</f7-button>
+          </f7-col>
+        </f7-row>
+
   </f7-page>
 </template>
 <script>
-import firebase from '../js/firebaseInit';
-import functions from '../js/functions';
+import firebase from '../../js/firebaseInit';
+import functions from '../../js/functions';
 export default {
   data(){
     return {
