@@ -18,6 +18,8 @@ import RequestAndLoad from '../pages/request-and-load.vue';
 import NotFoundPage from '../pages/404.vue';
 import MedicalConditionDoctor from '../pages/doctor/medicalConditionDoctor.vue';
 import MedicationDoctor from '../pages/doctor/medicationDoctor.vue';
+import PatientMedicalHistory from '../pages/patient/patientMedicalHistory.vue';
+import PatientPrescriptions from '../pages/patient/patientPrescriptions.vue';
 
 var routes = [
   {
@@ -63,6 +65,14 @@ var routes = [
   {
     path: '/medicalHistory/:id',
     component: MedicationDoctor,
+  },
+  {
+    path: '/patientMedicalHistory/:id',
+    component: PatientMedicalHistory,
+  },
+  {
+    path: '/patientPrescriptions/:id',
+    component: PatientPrescriptions,
   },
   {
     path: '/pharmacistHome/',

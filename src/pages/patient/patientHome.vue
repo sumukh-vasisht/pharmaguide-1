@@ -21,7 +21,7 @@
     
     <f7-row>
       <f7-col>
-        <f7-button raised fill  :href="'/medicalHistory/'+id">View Medical History</f7-button>
+        <f7-button raised fill  :href="'/patientMedicalHistory/'+id">View Medical History</f7-button>
       </f7-col>
     </f7-row>
     
