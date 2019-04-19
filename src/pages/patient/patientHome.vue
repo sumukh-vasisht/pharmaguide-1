@@ -21,8 +21,8 @@
   </f7-page>
 </template>
 <script>
-import firebase from '../js/firebaseInit';
-import functions from '../js/functions';
+import firebase from '../../js/firebaseInit';
+import functions from '../../js/functions';
 export default {
   data(){
     return {

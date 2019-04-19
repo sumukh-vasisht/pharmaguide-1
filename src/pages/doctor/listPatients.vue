@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import functions from '../js/functions'
+import functions from '../../js/functions'
 export default {
     data(){
         return {

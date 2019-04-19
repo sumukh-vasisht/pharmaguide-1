@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import firebase from '../js/firebaseInit'
+import firebase from '../../js/firebaseInit'
 export default {
     data() {
         return {
