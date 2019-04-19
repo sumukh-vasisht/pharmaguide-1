@@ -49,6 +49,9 @@ import firebase from '../js/firebaseInit'
         .then(auth=>{
           if(this.username == "doctor")
             this.$f7router.navigate('/doctorHome')
+          else if (this.username == "pharmacist"){
+            this.$f7router.navigate('/pharmacistHome/')
+          }
           else{
             this.$f7router.navigate('/patientHome/'+this.username)
           }

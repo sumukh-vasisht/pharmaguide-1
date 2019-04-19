@@ -1,6 +1,8 @@
 import LoginPage from '../pages/login.vue'
 import PatientHome from '../pages/patient/patientHome.vue'
 import DoctorHome from '../pages/doctor/doctorHome.vue'
+import PharmacistHome from '../pages/pharmacist/pharmacistHome.vue'
+import PharmacistPrescription from '../pages/pharmacist/prescriptions.vue'
 import AddPatient from '../pages/doctor/addPatient.vue'
 import ListPatients from '../pages/doctor/listPatients.vue'
 import ViewPatient from '../pages/doctor/viewPatient.vue'
@@ -61,6 +63,14 @@ var routes = [
   {
     path: '/medicationDoctor',
     component: MedicationDoctor,
+  },
+  {
+    path: '/pharmacistHome/',
+    component: PharmacistHome,
+  },
+  {
+    path: '/prescriptions/:id',
+    component: PharmacistPrescription,
   },
   {
     path: '/form/',
