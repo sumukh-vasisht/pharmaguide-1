@@ -23,10 +23,10 @@
             <f7-button raised fill  href="/">Home</f7-button>
           </f7-col>
           <f7-col>
-            <f7-button raised fill  href="/medicalConditionDoctor">Medical Conditions</f7-button>
+            <f7-button raised fill  :href="'/medicalConditionDoctor/'+id">Medical Conditions</f7-button>
           </f7-col>
           <f7-col>
-            <f7-button raised fill  href="/medicationDoctor">Medications</f7-button>
+            <f7-button raised fill  :href="'/medicationDoctor/'+id">Medications</f7-button>
           </f7-col>
         </f7-row>
 

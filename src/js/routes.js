@@ -55,11 +55,11 @@ var routes = [
     component: ViewPatient,
   },
   {
-    path: '/medicalConditionDoctor',
+    path: '/medicalConditionDoctor/:id',
     component: MedicalConditionDoctor,
   },
   {
-    path: '/medicationDoctor',
+    path: '/medicationDoctor/:id',
     component: MedicationDoctor,
   },
   {
