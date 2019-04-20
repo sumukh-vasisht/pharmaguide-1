@@ -126,6 +126,13 @@ export default {
       if(functions.checkString(chkarray) && functions.checkNumber(chknums)){
         let promiseMed = []
         let promisePre = []
+        let allMeds =[]
+
+        this.medicalConditions.forEach(condition=>{
+          condition.prescription.forEach(medicine=>{
+            allMeds.push(medicine)
+          })
+        })
         this.medicalConditions.forEach(condition=>{
           condition.issue = condition.issue.toUpperCase()
           condition.issue = condition.issue.replace(/ /g,"_")
@@ -134,13 +141,14 @@ export default {
             issue: condition.issue,
             prescription : condition.prescription
           }))
-          promisePre.push(firebase.db.doc('prescriptions/'+this.id).update({
-            
-          }))
-        })      
+          promisePre.push(firebase.db.doc('prescriptions/'+this.id).set({prescription : allMeds}))
+        }) 
+        Promise.all(promisePre)
+        .then(snapshotPre=>{
         Promise.all(promiseMed)
-        .then(snapshot=>{
+        .then(snapshotMed=>{
           this.$f7.dialog.alert("Patient Details Updated")
+        })
         })
       }
       else{
