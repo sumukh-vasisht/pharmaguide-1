@@ -9,8 +9,8 @@ import ViewPatient from '../pages/doctor/viewPatient.vue'
 import MedicalConditionDoctor from '../pages/doctor/medicalConditionDoctor.vue';
 import MedicalHistory from '../pages/doctor/medicalHistory.vue';
 import ListDisease from '../pages/doctor/listDisease.vue'
+import PatientListDisease from '../pages/patient/patientListDisease.vue';
 import PatientMedicalHistory from '../pages/patient/patientMedicalHistory.vue';
-import PatientPrescriptions from '../pages/patient/patientPrescriptions.vue';
 //OUR IMPORTSN'T
 import HomePage from '../pages/home.vue';
 import AboutPage from '../pages/about.vue';
@@ -77,12 +77,12 @@ var routes = [
     component: MedicalHistory,
   },
   {
-    path: '/patientMedicalHistory/:id',
-    component: PatientMedicalHistory,
+    path: '/patientListDisease/:id',
+    component: PatientListDisease,
   },
   {
-    path: '/patientPrescriptions/:id',
-    component: PatientPrescriptions,
+    path: '/patientMedicalHistory/:id/:disease',
+    component: PatientMedicalHistory,
   },
   {
     path: '/pharmacistHome/',

@@ -19,11 +19,9 @@
     <f7-block-title>Emergency Contact Number : {{selected.patientEmergencyContact}}</f7-block-title>
 
     
-    <f7-row>
-      <f7-col>
-        <f7-button raised fill  :href="'/patientMedicalHistory/'+id">View Medical History</f7-button>
-      </f7-col>
-    </f7-row>
+    <f7-block>
+        <f7-button raised fill  :href="'/patientListDisease/'+id">View Medical History</f7-button>
+    </f7-block>
     
   </f7-page>
 </template>
@@ -41,7 +39,7 @@ export default {
     this.id = this.$f7route.params.id
     console.dir(this.$f7router.url);
     console.dir(this.$f7router);
-    functions.getDocument("patients",this,"selected")
+    functions.getDocument("patients/"+this.id,this,"selected")
   },
   methods: {
     logout() {
