@@ -23,7 +23,7 @@
             <f7-button raised fill  :href="'/medicalConditionDoctor/'+id">Medical Conditions</f7-button>
           </f7-col>
           <f7-col>
-            <f7-button raised fill  :href="'/medicalHistory/'+id">Medications</f7-button>
+            <f7-button raised fill  :href="'/listDisease/'+id">Medications</f7-button>
           </f7-col>
         </f7-row>
 
@@ -43,7 +43,7 @@ export default {
     this.id = this.$f7route.params.id
     console.dir(this.$f7router.url);
     console.dir(this.$f7router);
-    functions.getDocument("patients",this,"selected")
+    functions.getDocument("patients/"+this.id,this,"selected")
   }
 }
 </script>
