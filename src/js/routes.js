@@ -1,12 +1,16 @@
 import LoginPage from '../pages/login.vue'
 import PatientHome from '../pages/patient/patientHome.vue'
 import DoctorHome from '../pages/doctor/doctorHome.vue'
+import PharmacistHome from '../pages/pharmacist/pharmacistHome.vue'
+import PharmacistPrescription from '../pages/pharmacist/prescriptions.vue'
 import AddPatient from '../pages/doctor/addPatient.vue'
 import ListPatients from '../pages/doctor/listPatients.vue'
 import ViewPatient from '../pages/doctor/viewPatient.vue'
 import MedicalConditionDoctor from '../pages/doctor/medicalConditionDoctor.vue';
 import MedicalHistory from '../pages/doctor/medicalHistory.vue';
 import ListDisease from '../pages/doctor/listDisease.vue'
+import PatientMedicalHistory from '../pages/patient/patientMedicalHistory.vue';
+import PatientPrescriptions from '../pages/patient/patientPrescriptions.vue';
 //OUR IMPORTSN'T
 import HomePage from '../pages/home.vue';
 import AboutPage from '../pages/about.vue';
@@ -17,6 +21,7 @@ import SettingsPage from '../pages/settings.vue';
 import DynamicRoutePage from '../pages/dynamic-route.vue';
 import RequestAndLoad from '../pages/request-and-load.vue';
 import NotFoundPage from '../pages/404.vue'
+
 
 var routes = [
   {
@@ -70,6 +75,22 @@ var routes = [
   {
     path: '/medicalHistory/:id/:disease',
     component: MedicalHistory,
+  },
+  {
+    path: '/patientMedicalHistory/:id',
+    component: PatientMedicalHistory,
+  },
+  {
+    path: '/patientPrescriptions/:id',
+    component: PatientPrescriptions,
+  },
+  {
+    path: '/pharmacistHome/',
+    component: PharmacistHome,
+  },
+  {
+    path: '/prescriptions/:id',
+    component: PharmacistPrescription,
   },
   {
     path: '/form/',

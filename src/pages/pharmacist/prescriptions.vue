@@ -2,7 +2,7 @@
   <f7-page :name="'Patient '">
     <f7-navbar :title="'Patient Details - '+ id" back-link="Back">
       <f7-nav-right style="padding-right: 20px;">
-          <f7-button raised fill  @click="logout">Logout</f7-button>
+          <f7-button raised fill  href="/pharmacistHome/">Home</f7-button>
         </f7-nav-right>
     </f7-navbar>
 
@@ -14,17 +14,12 @@
   
     <f7-block-title>Gender : {{selected.patientGender}}</f7-block-title>
 
-    <f7-block-title>Date of Birth : {{selected.patientDOB}}</f7-block-title>
-
-    <f7-block-title>Emergency Contact Number : {{selected.patientEmergencyContact}}</f7-block-title>
-
-    
     <f7-row>
-      <f7-col>
-        <f7-button raised fill  :href="'/patientMedicalHistory/'+id">View Medical History</f7-button>
-      </f7-col>
+          <f7-col>
+            <f7-button raised fill  href="/pharmacistHome/">Home</f7-button>
+          </f7-col>      
     </f7-row>
-    
+
   </f7-page>
 </template>
 <script>
@@ -42,14 +37,6 @@ export default {
     console.dir(this.$f7router.url);
     console.dir(this.$f7router);
     functions.getDocument("patients",this,"selected")
-  },
-  methods: {
-    logout() {
-      firebase.auth.signOut()
-      .then(x=>{
-         this.$f7router.navigate('/')
-      })
-    },
   }
 }
 </script>

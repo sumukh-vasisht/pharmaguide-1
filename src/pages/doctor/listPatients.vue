@@ -18,7 +18,7 @@
       <f7-list-item :link="'/viewPatient/'+patient" v-for="patient in filteredPatients" :title="patient" v-bind:key="patient"></f7-list-item>
     </f7-list>
     <f7-block>        
-        <f7-button class="col" raised fill href='/addPatient'>Add Grade</f7-button>
+        <f7-button class="col" raised fill href='/addPatient'>Add Patient</f7-button>
     </f7-block>
     </f7-page>   
 </template>
