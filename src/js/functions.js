@@ -31,6 +31,14 @@ const checkNumber = function(chkArray){
     else
       return false;
 }
+const checkString = function(chkArray){
+  chkArray.forEach(element=>{
+    if(element == ""){
+      return false
+    }
+  })
+  return true
+}
 const checkNumberOrEmpty = function(chkArray){
   const isNumber = function(n){
       n = n+''
@@ -82,4 +90,5 @@ export default {
     getDocument,
     getAllDocs,
     checkNumberOrEmpty,
+    checkString,
 }

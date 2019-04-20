@@ -8,15 +8,10 @@
 
     <f7-block-title>Add Medical Condition</f7-block-title>
 
-    <f7-list id="medicalConditions" v-for="(medicalCondition,index) in medicalConditions" v-bind:key="index" no-hairlines-md>
+    <f7-list>
+    <f7-list-item >Date : {{date}}</f7-list-item> </f7-list>
 
-    <f7-list-input id = "medicalConditionDate"
-        label="Enter Date"
-        type="date"
-        placeholder="Enter Date"
-        :value="medicalConditions[index].date" 
-        @input="medicalConditions[index].date = $event.target.value"
-      ></f7-list-input>
+    <f7-list id="medicalConditions" v-for="(medicalCondition,index) in medicalConditions" v-bind:key="index" no-hairlines-md>
 
     <f7-list-input id = "medicalConditionIssue"
         label="Enter The Issue"
@@ -26,42 +21,43 @@
         @input="medicalConditions[index].issue = $event.target.value"
       ></f7-list-input>
 
-    <f7-list id="medicines" v-for="(medicine,index) in medicines" v-bind:key="index" inset>  
+    <f7-list v-for="(medicine,indexMed) in medicalConditions[index].prescription" v-bind:key="indexMed" inset>  
         <f7-block-title>Add Medication</f7-block-title>
 
     <f7-list-input id="medicine"
         label="Enter Medicine Name"
         type="text"
         placeholder="Enter Medicine Name"
-        :value="medicines[index].medicineName" 
-        @input="medicines[index].medicineName = $event.target.value"
+        :value="medicalConditions[index].prescription[indexMed].medicineName" 
+        @input="medicalConditions[index].prescription[indexMed].medicineName = $event.target.value"
       ></f7-list-input>
 
     <f7-list-input id="quantity"
         label="Enter The Quantity"
         type="text"
         placeholder="Enter The Quantity"
-        :value="medicines[index].quantity" 
-        @input="medicines[index].quantity = $event.target.value"
+        :value="medicalConditions[index].prescription[indexMed].quantity" 
+        @input="medicalConditions[index].prescription[indexMed].quantity = $event.target.value"
       ></f7-list-input>
 
     </f7-list>
 
     <f7-block>      
-            <f7-button class="col" :disabled= "isDisabled" v-on:click = "addMedicine(index)">Add another medicine</f7-button>      
-            <f7-button class="col" :disabled= "isDisabled" @click="removeMedicine">Remove a medicine</f7-button>
+            <f7-button class="col" v-on:click = "addMedicine(index)">Add another medicine</f7-button>      
+            <f7-button class="col" v-on:click = "removeMedicine(index)">Remove a medicine</f7-button>
     </f7-block>
-
-    </f7-list>
 
     <f7-block-title><hr></f7-block-title>
 
+     </f7-list>
+
     <f7-block>      
             <f7-button class="col"  @click="addMedicalCondition">Add Another Medical Condition</f7-button>      
-            <f7-button class="col" :disabled= "isDisabled" @click="removeMedicalCondition">Remove a Medical Condition</f7-button>
+            <f7-button class="col" @click="removeMedicalCondition">Remove a Medical Condition</f7-button>
       </f7-block>
-
-
+    <f7-block>
+      <f7-button @click="addIssue" raised fill>Submit</f7-button>
+    </f7-block>
   </f7-page>
 </template>
 
@@ -72,10 +68,12 @@ export default {
   data(){
     return {
       id : "",
+      date : '',
+      pushedTimeStamp : "",
       medicalConditions: [{
-        date : '',
+        pushedTimeStamp : (new Date).getTime(),
         issue : '',
-        medicines: [{
+        prescription: [{
         medicineName : '',
         quantity : '',
       }]
@@ -85,23 +83,27 @@ export default {
   },
   beforeMount(){
     this.id = this.$f7route.params.id
+    this.date = (new Date()).toLocaleDateString('en-GB')
+    this.date = this.date.replace(/\//g,"-");
+    this.pushedTimeStamp = (new Date).getTime()
   },
-  methods : {
+  methods : 
+  {
     addMedicine : function(index) {
       console.log(index)
-      this.medicalConditions[index].medicines.push({
+      this.medicalConditions[index].prescription.push({
         medicineName : '',
         quantity : '',
       });
     },
-    removeMedicine(){
-      this.medicines.pop()
+    removeMedicine(index){
+      this.medicalConditions[index].prescription.pop()
     },
     addMedicalCondition(){
       this.medicalConditions.push({
-        date : '',
+        pushedTimeStamp : (new Date).getTime(),
         issue : '',
-        medicines: [{
+        prescription: [{
         medicineName : '',
         quantity : '',
       }]
@@ -109,7 +111,42 @@ export default {
     },
     removeMedicalCondition(){
       this.medicalConditions.pop()
+    },
+    addIssue()
+    {   
+      let chkarray = []
+      let chknums = []
+      this.medicalConditions.forEach(condition=>{
+        chkarray.push(condition.issue)
+        condition.prescription.forEach(med=>{
+          chkarray.push(med.medicineName)
+          chknums.push(med.quantity)
+        })
+      })
+      if(functions.checkString(chkarray) && functions.checkNumber(chknums)){
+        let promiseMed = []
+        let promisePre = []
+        this.medicalConditions.forEach(condition=>{
+          condition.issue = condition.issue.toUpperCase()
+          condition.issue = condition.issue.replace(/ /g,"_")
+          promiseMed.push(firebase.db.doc('medicalHistory/'+this.id+'/medicalHistory/'+condition.issue+ " " +this.date).set({
+            dod : this.pushedTimeStamp,
+            issue: condition.issue,
+            prescription : condition.prescription
+          }))
+          promisePre.push(firebase.db.doc('prescriptions/'+this.id).update({
+            
+          }))
+        })      
+        Promise.all(promiseMed)
+        .then(snapshot=>{
+          this.$f7.dialog.alert("Patient Details Updated")
+        })
+      }
+      else{
+        this.$f7.dialog.alert("Please check your inputs")
+      }     
     }
-    }
+  }
 }
 </script>

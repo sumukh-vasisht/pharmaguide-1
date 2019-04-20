@@ -1,6 +1,6 @@
 <template>
   <f7-page :name="'Patient '">
-    <f7-navbar :title="'Patient '+ id + ' Medical History' + disease" back-link="Back">
+    <f7-navbar :title="'Patient '+ id + ' - Medical History'" back-link="Back">
       <f7-nav-right style="padding-right: 20px;">
         <f7-button raised fill  href="/doctorHome">Home</f7-button>
       </f7-nav-right>
