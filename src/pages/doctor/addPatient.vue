@@ -20,6 +20,7 @@
               <option value="Female">Female</option>
           </select>
       </f7-list-item>
+      <f7-list-input label="Contact" placeholder="XXXXXXXXXX" :value="patientContact" @input="patientContact = $event.target.value"></f7-list-input>    
       <f7-list-input label="Emergency Contact" placeholder="XXXXXXXXXX" :value="patientEmergencyContact" @input="patientEmergencyContact = $event.target.value"></f7-list-input>
     </f7-list>
     <f7-block>
@@ -37,6 +38,7 @@ export default {
             patientName:"",
             patientDOB:"",
             patientGender:"",
+            patientContact:"",
             patientEmergencyContact:""
         }
     },
@@ -63,12 +65,13 @@ export default {
             let differenceTimestamp = parseInt(curTimestamp) - parseInt(DOB.getTime())
             console.log(differenceTimestamp);
             let patientAge = Math.floor(differenceTimestamp/31557600000)
-            if(this.patientName != "" && this.patientAge != "" && this.patientGender != "" && this.patientEmergencyContact != ""){
+            if(this.patientName != "" && this.patientAge != "" && this.patientGender != "" && this.patientEmergencyContact != "" && this.patientContact != ""){
                 firebase.db.doc("patients/"+this.patientId).set({
                     patientName: this.patientName,
                     patientDOB:this.patientDOB,
                     patientAge: patientAge,
                     patientGender: this.patientGender,
+                    patientContact: this.patientContact,
                     patientEmergencyContact: this.patientEmergencyContact
                 })
                 .then(data=>{

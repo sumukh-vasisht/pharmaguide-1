@@ -16,7 +16,7 @@
     </f7-list>
 
     <f7-block>
-      <f7-button fill raised class="col" @keyup.enter.native="submitPatientId" @click='submitPatientId'>Submit</f7-button>
+      <f7-button @keyup.enter.native="submitPatientId" @click='submitPatientId' fill raised>Submit</f7-button>
     </f7-block>
 
   </f7-page>
