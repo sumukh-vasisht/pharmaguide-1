@@ -9,7 +9,7 @@
         <f7-list-item>Condition : {{medicalHistory.issue}} </f7-list-item>
         <f7-list-item>Date of diagnosis : {{(new Date(this.medicalHistory.dod)).toLocaleDateString('en-GB')}} </f7-list-item>
         <f7-list-item>Prescribed Medication : </f7-list-item>
-        <f7-list-item v-for="(med,index) in medicalHistory.prescription" v-bind:key="index">{{index+1}}<br>Name : {{med.name}}<br>Quantity : {{med.quantity}}<br></f7-list-item>
+        <f7-list-item v-for="(med,index) in medicalHistory.prescription" v-bind:key="index">Medication Number : {{index+1}}<br>Name : {{med.medicineName}}<br>Quantity : {{med.quantity}}<br></f7-list-item>
       </f7-list>
   </f7-page>
 </template>

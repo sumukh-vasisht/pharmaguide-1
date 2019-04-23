@@ -6,19 +6,26 @@
         </f7-nav-right>
     </f7-navbar>
 
-    <f7-block-title>Patient ID : {{id}}</f7-block-title>
+    <f7-list>
+    <f7-list-item>Patient ID : {{id}}</f7-list-item>
 
-    <f7-block-title>Patient Name : {{selected.patientName}}</f7-block-title>
+    <f7-list-item>Patient Name : {{selected.patientName}}</f7-list-item>
 
-    <f7-block-title>Age : {{selected.patientAge}}</f7-block-title>
+    <f7-list-item>Age : {{selected.patientAge}}</f7-list-item>
   
-    <f7-block-title>Gender : {{selected.patientGender}}</f7-block-title>
+    <f7-list-item>Gender : {{selected.patientGender}}</f7-list-item>
 
-    <f7-block-title>Date of Birth : {{selected.patientDOB}}</f7-block-title>
+    <f7-list-item>Date of Birth : {{selected.patientDOB}}</f7-list-item>
 
-    <f7-block-title>Contact Number : {{selected.patientContact}}</f7-block-title>
+    <f7-list-item>Contact Number : {{selected.patientContact}}</f7-list-item>
 
-    <f7-block-title>Emergency Contact Number : {{selected.patientEmergencyContact}}</f7-block-title>
+    <f7-list-item>Emergency Contact Number : {{selected.patientEmergencyContact}}</f7-list-item>
+    </f7-list>
+    <f7-block-title>Allergies</f7-block-title>
+    <f7-list>
+      <f7-list-item v-for="(allergy,index) in selected.allergies" v-bind:key="index" :title="(index+1) + '. ' + allergy"></f7-list-item>
+    </f7-list>
+    </f7-block>
 
     <f7-block>
         <f7-button raised fill  :href="'/patientListDisease/'+id">View Medical History</f7-button>

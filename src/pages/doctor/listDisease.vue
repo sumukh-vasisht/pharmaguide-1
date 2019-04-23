@@ -2,7 +2,7 @@
     <f7-page name="addPatient">
     <!-- Top Navbar -->
     <f7-navbar>
-      <f7-navbar title="Patients List" back-link="Back">
+      <f7-navbar title="Patient's disease list" back-link="Back">
         <f7-nav-right style="padding-right: 20px;">
           <f7-button raised fill  href="/doctorHome">Home</f7-button>
         </f7-nav-right>
@@ -15,7 +15,7 @@
         :value="search"
         @input="search = $event.target.value"
       ></f7-list-input>
-      <f7-list-item :link="'/medicalHistory/'+id+'/'+disease" v-for="disease in filteredDiseases" :title="disease" v-bind:key="disease"></f7-list-item>
+      <f7-list-item :link="'/medicalHistory/'+id+'/'+disease" v-for="(disease,index) in filteredDiseases" :title="(index+1)+ '. ' +disease" v-bind:key="index"></f7-list-item>
     </f7-list>
     </f7-page>   
 </template>
