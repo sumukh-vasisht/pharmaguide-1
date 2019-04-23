@@ -23,7 +23,14 @@
       <f7-list-input label="Contact" placeholder="XXXXXXXXXX" :value="patientContact" @input="patientContact = $event.target.value"></f7-list-input>    
       <f7-list-input label="Emergency Contact" placeholder="XXXXXXXXXX" :value="patientEmergencyContact" @input="patientEmergencyContact = $event.target.value"></f7-list-input>
     </f7-list>
-    <f7-block></f7-block>
+    <f7-block>
+        <f7-block-title>Allergies</f7-block-title>
+        <f7-list>
+            <f7-list-input v-for="(allergy,index) in allergies" v-bind:key="index" :placeholder="'Allergy '+(index+1)" :value="allergies[index]" @input="allergies[index] = $event.target.value"></f7-list-input>
+        </f7-list>
+        <f7-button @click="addAllergy">Add an an Allergy</f7-button>
+        <f7-button @click="removeAllergy">Remove an Allergy</f7-button>
+    </f7-block>
     <f7-block>
         <f7-button type="submit" class="col" @keyup.enter.native="confirmAction" @click="confirmAction"  raised fill>SUBMIT</f7-button>
     </f7-block>
@@ -40,7 +47,8 @@ export default {
             patientDOB:"",
             patientGender:"",
             patientContact:"",
-            patientEmergencyContact:""
+            patientEmergencyContact:"",
+            allergies:[]
         }
     },
     beforeMount(){
@@ -50,6 +58,12 @@ export default {
         })
     },
     methods:{
+        addAllergy(){
+            this.allergies.push('')
+        },
+        removeAllergy(){
+            this.allergies.pop()
+        },
         confirmAction(){
             let data = `
             Name : `+ this.patientName +`
@@ -73,12 +87,14 @@ export default {
                     patientAge: patientAge,
                     patientGender: this.patientGender,
                     patientContact: this.patientContact,
-                    patientEmergencyContact: this.patientEmergencyContact
+                    patientEmergencyContact: this.patientEmergencyContact,
+                    allergies: this.allergies
                 })
                 .then(data=>{
                     let $ = this
                     this.$f7.dialog.alert("Patient "+ this.patientName + " Added","", function(){$.$f7router.refreshPage()});
                     this.incrementPatientID()
+                    this.$f7router.refreshPage()
                 })
             }
             else{

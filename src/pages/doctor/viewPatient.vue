@@ -22,6 +22,10 @@
 
     <f7-list-item>Emergency Contact Number : {{selected.patientEmergencyContact}}</f7-list-item>
     </f7-list>
+    <f7-block-title>Allergies</f7-block-title>
+    <f7-list>
+      <f7-list-item v-for="(allergy,index) in selected.allergies" v-bind:key="index" :title="(index+1) + '. ' + allergy"></f7-list-item>
+    </f7-list>
     </f7-block>
     <f7-block>
     <f7-row>
