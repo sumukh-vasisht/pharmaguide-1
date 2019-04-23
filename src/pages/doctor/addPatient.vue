@@ -23,6 +23,7 @@
       <f7-list-input label="Contact" placeholder="XXXXXXXXXX" :value="patientContact" @input="patientContact = $event.target.value"></f7-list-input>    
       <f7-list-input label="Emergency Contact" placeholder="XXXXXXXXXX" :value="patientEmergencyContact" @input="patientEmergencyContact = $event.target.value"></f7-list-input>
     </f7-list>
+    <f7-block></f7-block>
     <f7-block>
         <f7-button type="submit" class="col" @keyup.enter.native="confirmAction" @click="confirmAction"  raised fill>SUBMIT</f7-button>
     </f7-block>
