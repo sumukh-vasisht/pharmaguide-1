@@ -5,7 +5,7 @@
           <f7-button raised fill  @click="logout">Logout</f7-button>
         </f7-nav-right>
     </f7-navbar>
-
+    <f7-block>
     <f7-list>
     <f7-list-item>Patient ID : {{id}}</f7-list-item>
 
