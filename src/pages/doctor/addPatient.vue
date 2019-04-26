@@ -69,8 +69,11 @@ export default {
             Name : `+ this.patientName +`
             <br>DOB : `+ this.patientDOB +`
             <br>Gender : `+ this.patientGender +`
+            <br>Contact :` + this.patientContact +`
             <br>Emergency Contact : `+ this.patientEmergencyContact +`
+            <br>Allergies: <br> `+ this.allergies.join("<br>") + `
             `
+            
             this.$f7.dialog.confirm(data,"Confirm data",this.savePatient,this.return)
         },
         savePatient(){

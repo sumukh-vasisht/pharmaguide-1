@@ -28,7 +28,12 @@ export default {
     data(){
       return {
         patientId:'',
+        documents: []
       }
+    },
+    beforeMount(){
+      functions.getAllDocs("prescriptions",this)
+        console.log(this.documents)
     },
     methods:{
       submitPatientId(){

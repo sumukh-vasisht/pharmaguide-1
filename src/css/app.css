@@ -1,1 +1,8 @@
 /* Your app custom styles here */
+.dialog {
+    max-height: 80vh;
+  }
+  .dialog-text{
+    max-height: 55vh;
+    overflow-y: scroll;
+  }
