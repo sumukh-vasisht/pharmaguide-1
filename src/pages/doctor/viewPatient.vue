@@ -38,7 +38,7 @@
       </f7-row><br>
       <f7-row>
         <f7-col>
-          <f7-button raised fill color="red" @click="delPatient">Delete Patient</f7-button>
+          <f7-button raised fill color="red" @click="confirmDeletion">Delete Patient</f7-button>
         </f7-col>
       </f7-row>
     </f7-block>
@@ -61,6 +61,9 @@ export default {
     functions.getDocument("patients/"+this.id,this,"selected")
   },
   methods:{
+    confirmDeletion(){
+      this.$f7.dialog.confirm( "Are you sure you want to delete the patient?" , this.delPatient, this.return);
+    },
     delPatient(){
       let Name = this.selected.patientName
       let delDetailsPromise = firebase.db.doc('patients/'+this.id).delete()
