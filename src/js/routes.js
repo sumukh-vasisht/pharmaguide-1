@@ -15,7 +15,7 @@ import EditPatientList from '../pages/doctor/listPatientsForEdit.vue'
 import EditPatient from '../pages/doctor/editPatient.vue'
 import Appointment from '../pages/doctor/appointments.vue'
 import EachAppointment from '../pages/doctor/eachAppointment.vue'
-
+import AddAppointment from '../pages/patient/makeAppointment.vue'
 //OUR IMPORTSN'T
 import HomePage from '../pages/home.vue';
 import AboutPage from '../pages/about.vue';
@@ -32,6 +32,10 @@ var routes = [
   {
     path: '/',
     component: LoginPage,
+  },
+  {
+    path: '/makeAppointment/:id',
+    component: AddAppointment,
   },
   {
     path: '/doctorHome',
