@@ -38,7 +38,7 @@
       </f7-row><br>
       <f7-row>
         <f7-col>
-          <f7-button raised fill color="red" @click="delPatient">Delete Patient</f7-button>
+          <f7-button raised fill color="red" @click="confirmAction">Delete Patient</f7-button>
         </f7-col>
       </f7-row>
     </f7-block>
@@ -61,10 +61,13 @@ export default {
     functions.getDocument("patients/"+this.id,this,"selected")
   },
   methods:{
+    confirmAction(){
+      this.$f7.dialog.confirm("Are you sure?","Confirm",this.delPatient,this.return)
+    },
     delPatient(){
       let Name = this.selected.patientName
       let delDetailsPromise = firebase.db.doc('patients/'+this.id).delete()
-      let delMedHistPromise = firebase.db.doc('medicalHistory/'+this.id).delete()
+      let delMedHistPromise = firebase.db.doc('medicalHistory/'+this.id+'/medicalHistory').delete()
       let delPrescriPromise = firebase.db.doc('prescriptions/'+this.id).delete()
       let allPromises = [delDetailsPromise, delMedHistPromise, delPrescriPromise]
       let $=this
