@@ -30,6 +30,12 @@
     <f7-block>
         <f7-button raised fill  :href="'/patientListDisease/'+id">View Medical History</f7-button>
     </f7-block>
+    <f7-list>
+      <f7-list-item>Appointment Status: {{selected.appointment}} on {{selected.appointmentDate}} at {{selected.appointmentTime}}</f7-list-item>
+    </f7-list>
+    <f7-block>
+        <f7-button raised fill  :href="'/makeAppointment/'+id">Take Appointment</f7-button>
+    </f7-block>
     
   </f7-page>
 </template>
@@ -40,7 +46,7 @@ export default {
   data(){
     return {
       id : "",
-      selected:{}
+      selected:{},
     }
   },
   beforeMount(){

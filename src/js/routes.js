@@ -13,6 +13,7 @@ import PatientListDisease from '../pages/patient/patientListDisease.vue';
 import PatientMedicalHistory from '../pages/patient/patientMedicalHistory.vue';
 import EditPatientList from '../pages/doctor/listPatientsForEdit.vue'
 import EditPatient from '../pages/doctor/editPatient.vue'
+import AddAppointment from '../pages/patient/makeAppointment.vue'
 //OUR IMPORTSN'T
 import HomePage from '../pages/home.vue';
 import AboutPage from '../pages/about.vue';
@@ -29,6 +30,10 @@ var routes = [
   {
     path: '/',
     component: LoginPage,
+  },
+  {
+    path: '/makeAppointment/:id',
+    component: AddAppointment,
   },
   {
     path: '/doctorHome',
