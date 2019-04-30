@@ -56,7 +56,7 @@
             <f7-button class="col" @click="removeMedicalCondition">Remove a Medical Condition</f7-button>
       </f7-block>
     <f7-block>
-      <f7-button @click="addIssue" raised fill>Submit</f7-button>
+      <f7-button @click="confirmAction" raised fill>Submit</f7-button>
     </f7-block>
   </f7-page>
 </template>
@@ -112,6 +112,9 @@ export default {
     removeMedicalCondition(){
       this.medicalConditions.pop()
     },
+    confirmAction(){
+      this.$f7.dialog.confirm("Are you sure?","Confirm",this.addIssue,this.return)
+    },
     addIssue()
     {   
       let chkarray = []
@@ -145,10 +148,10 @@ export default {
         }) 
         Promise.all(promisePre)
         .then(snapshotPre=>{
-        Promise.all(promiseMed)
-        .then(snapshotMed=>{
-          this.$f7.dialog.alert("Patient Details Updated")
-        })
+          Promise.all(promiseMed)
+          .then(snapshotMed=>{
+            this.$f7.dialog.alert("Patient Details Updated")
+          })
         })
       }
       else{
