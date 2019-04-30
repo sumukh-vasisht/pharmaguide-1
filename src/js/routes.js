@@ -13,6 +13,9 @@ import PatientListDisease from '../pages/patient/patientListDisease.vue';
 import PatientMedicalHistory from '../pages/patient/patientMedicalHistory.vue';
 import EditPatientList from '../pages/doctor/listPatientsForEdit.vue'
 import EditPatient from '../pages/doctor/editPatient.vue'
+import Appointment from '../pages/doctor/appointments.vue'
+import EachAppointment from '../pages/doctor/eachAppointment.vue'
+
 //OUR IMPORTSN'T
 import HomePage from '../pages/home.vue';
 import AboutPage from '../pages/about.vue';
@@ -93,6 +96,14 @@ var routes = [
   {
     path: '/patientMedicalHistory/:id/:disease',
     component: PatientMedicalHistory,
+  },
+  {
+    path: '/appointments',
+    component: Appointment,
+  },
+  {
+    path: '/eachAppointment/:id',
+    component: EachAppointment,
   },
   {
     path: '/pharmacistHome/',
