@@ -148,10 +148,10 @@ export default {
         }) 
         Promise.all(promisePre)
         .then(snapshotPre=>{
-        Promise.all(promiseMed)
-        .then(snapshotMed=>{
-          this.$f7.dialog.alert("Patient Details Updated")
-        })
+          Promise.all(promiseMed)
+          .then(snapshotMed=>{
+            this.$f7.dialog.alert("Patient Details Updated")
+          })
         })
       }
       else{
