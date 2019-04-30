@@ -67,7 +67,7 @@ export default {
     delPatient(){
       let Name = this.selected.patientName
       let delDetailsPromise = firebase.db.doc('patients/'+this.id).delete()
-      let delMedHistPromise = firebase.db.doc('medicalHistory/'+this.id+'/medicalHistory').delete()
+      let delMedHistPromise = firebase.db.doc('medicalHistory/'+this.id).delete()
       let delPrescriPromise = firebase.db.doc('prescriptions/'+this.id).delete()
       let allPromises = [delDetailsPromise, delMedHistPromise, delPrescriPromise]
       let $=this
