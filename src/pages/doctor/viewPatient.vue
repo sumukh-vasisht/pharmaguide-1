@@ -28,14 +28,19 @@
     </f7-list>
     </f7-block>
     <f7-block>
-    <f7-row>
-          <f7-col>
-            <f7-button raised fill  :href="'/medicalConditionDoctor/'+id">Add Medical Conditions</f7-button>
-          </f7-col>
-          <f7-col>
-            <f7-button raised fill :href="'/listDisease/'+id">View Medical History</f7-button>
-          </f7-col>
-        </f7-row>
+      <f7-row>
+        <f7-col>
+          <f7-button raised fill  :href="'/medicalConditionDoctor/'+id">Add Medical Conditions</f7-button>
+        </f7-col>
+        <f7-col>
+          <f7-button raised fill :href="'/listDisease/'+id">View Medical History</f7-button>
+        </f7-col>
+      </f7-row><br>
+      <f7-row>
+        <f7-col>
+          <f7-button raised fill color="red" @click="confirmDeletion">Delete Patient</f7-button>
+        </f7-col>
+      </f7-row>
     </f7-block>
   </f7-page>
 </template>
@@ -54,6 +59,22 @@ export default {
     console.dir(this.$f7router.url);
     console.dir(this.$f7router);
     functions.getDocument("patients/"+this.id,this,"selected")
+  },
+  methods:{
+    confirmDeletion(){
+      this.$f7.dialog.confirm( "Are you sure you want to delete the patient?" , this.delPatient, this.return);
+    },
+    delPatient(){
+      let Name = this.selected.patientName
+      let delDetailsPromise = firebase.db.doc('patients/'+this.id).delete()
+      let delMedHistPromise = firebase.db.doc('medicalHistory/'+this.id).delete()
+      let delPrescriPromise = firebase.db.doc('prescriptions/'+this.id).delete()
+      let allPromises = [delDetailsPromise, delMedHistPromise, delPrescriPromise]
+      let $=this
+      Promise.all(allPromises).then(snapshot=>{
+        this.$f7.dialog.alert("Patient "+ Name + " Deleted","", function(){$.$f7router.navigate('/listPatients')});
+      })
+    }
   }
 }
 </script>
